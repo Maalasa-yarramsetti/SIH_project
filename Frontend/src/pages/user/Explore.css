@@ -95,3 +95,35 @@ body.dark-mode .card-wrapper {
   padding: 2rem;
   color: var(--text-light-secondary);
 }
+.events-page-wrapper {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Desktop (side-by-side) */
+@media (min-width: 769px) {
+  .events-page-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .calendar-container {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px; /* keeps it floating */
+  }
+  .events-content {
+    flex: 1;
+  }
+}
+
+/* Mobile (stacked, calendar above) */
+@media (max-width: 768px) {
+  .events-page-wrapper {
+    flex-direction: column;
+  }
+  .calendar-container {
+    order: -1; /* moves calendar above */
+    width: 100%;
+  }
+}

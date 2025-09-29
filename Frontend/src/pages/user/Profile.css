@@ -1,110 +1,122 @@
+/* ===== Profile Page Container ===== */
 .profile-page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2.25rem 1.25rem;
-  background: linear-gradient(180deg, rgba(246, 248, 255, 0.9), rgba(242, 246, 255, 0.9));
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #fdf9f3, #faf5ef);
 }
+
+/* ===== Profile Header ===== */
 .profile-header {
   display: grid;
   grid-template-columns: 160px 1fr auto;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(245,248,255,0.9));
-  padding: 1.75rem;
-  border-radius: 18px;
-  border: 1px solid var(--border-color-light);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+  background: linear-gradient(135deg, #fff9f0, #fdf2e9);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e7dfd1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
 }
 body.dark-mode .profile-header {
-  background: linear-gradient(135deg, var(--card-bg-dark) 0%, rgba(255,255,255,0.02) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--card-bg-dark) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   border-color: var(--border-color-dark);
 }
 
+/* ===== Avatar ===== */
 .avatar-wrap {
   width: 160px;
   height: 160px;
-  border-radius: 999px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: #f5f7fb;
-  border: 1px solid var(--border-color-light);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+  background: #f9f3e6;
+  border: 1px solid #e7dfd1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 .avatar-circle {
   width: 140px;
   height: 140px;
-  border-radius: 999px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: #fbfcfe;
-  color: #3b3f4a;
+  background: #fffaf0;
+  color: #8b6d4e;
   font-size: 64px;
   font-weight: 700;
   letter-spacing: 1px;
 }
-body.dark-mode .profile-avatar {
+body.dark-mode .avatar-circle {
+  background: var(--card-bg-dark);
   color: var(--secondary-color);
 }
 
+/* ===== Profile Info ===== */
 .profile-info h2 {
   margin: 0 0 0.35rem 0;
   font-size: 1.8rem;
+  color: #8b6d4e;
 }
 .profile-info p {
   margin: 0.25rem 0;
-  color: var(--text-light-secondary);
+  color: #a78c68;
 }
 body.dark-mode .profile-info p {
   color: var(--text-dark-secondary);
 }
 
+/* ===== Profile CTA Buttons ===== */
 .profile-cta {
   display: flex;
   gap: 0.75rem;
   justify-self: end;
 }
-
 .edit-profile-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #6ad39a, #8fe3b7);
-  color: #fff;
+  background: linear-gradient(135deg, #ecd2b0, #f6e2c1);
+  color: #8b6d4e;
   border: none;
   padding: 0.65rem 1.1rem;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(106, 211, 154, 0.28);
+  box-shadow: 0 6px 14px rgba(236, 210, 176, 0.28);
 }
 .edit-profile-btn:hover {
   filter: brightness(1.05);
 }
 
+/* ===== Profile Sections ===== */
 .profile-section {
-  background: rgba(255,255,255,0.9);
+  background: #fffaf0;
   padding: 1.35rem 1.25rem;
   border-radius: 16px;
   margin-bottom: 1.25rem;
-  border: 1px solid var(--border-color-light);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-}
-/* Neutralize any blue tones specifically for Favorites card */
-.favorites-section {
-  background: #f9fafb;
+  border: 1px solid #e7dfd1;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
 body.dark-mode .profile-section {
   background: var(--card-bg-dark);
   border-color: var(--border-color-dark);
 }
+
+/* ===== Coin Balance ===== */
 .coin-balance {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: #c9a66b;
 }
 body.dark-mode .coin-balance {
   color: var(--secondary-color);
 }
+
+/* ===== Favorites List ===== */
 .favorites-lists {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -114,16 +126,16 @@ body.dark-mode .coin-balance {
   padding-left: 20px;
   margin: 0.5rem 0 0 0;
 }
-
 .favorites-lists li {
   padding: 0.4rem 0.25rem;
-  border-bottom: 1px dashed var(--border-color-light);
-  color: var(--text-light);
+  border-bottom: 1px dashed #e7dfd1;
+  color: #8b6d4e;
 }
 body.dark-mode .favorites-lists li {
   border-bottom-color: var(--border-color-dark);
 }
 
+/* ===== Scrollable Favorites ===== */
 .wide-scroll {
   max-height: 380px;
   overflow: hidden;
@@ -138,10 +150,11 @@ body.dark-mode .favorites-lists li {
   width: 8px;
 }
 .wide-scroll .favorites-lists::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.12);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 999px;
 }
 
+/* ===== Quick Buttons Row ===== */
 .quick-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -156,15 +169,15 @@ body.dark-mode .favorites-lists li {
   width: 100%;
   padding: 0.8rem 1rem;
   border-radius: 12px;
-  border: 1px solid var(--border-color-light);
-  background: linear-gradient(135deg, #e9f1ff, #f3f7ff);
-  color: #335;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+  border: 1px solid #e7dfd1;
+  background: linear-gradient(135deg, #fdf5e8, #fff7f0);
+  color: #8b6d4e;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
 }
 .coins-btn .coins-count {
   margin-left: 0.4rem;
-  background: #d6e4ff;
-  color: #294;
+  background: #f7ead6;
+  color: #8b6d4e;
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
   font-weight: 700;
@@ -174,30 +187,31 @@ body.dark-mode .favorites-lists li {
   padding: 0.8rem 1rem;
   border-radius: 12px;
 }
-
 .logout-btn {
   width: 100%;
   padding: 0.9rem 1.25rem;
-  background: linear-gradient(135deg, #ffc2c2, #ff9c9c);
+  background: linear-gradient(135deg, #f5bba1, #f8d3c3);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 1.05rem;
   cursor: pointer;
-  box-shadow: 0 8px 16px rgba(255, 156, 156, 0.35);
+  box-shadow: 0 8px 16px rgba(248, 211, 195, 0.35);
 }
 
+/* ===== Profile Grid ===== */
 .profile-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1.25rem;
 }
 
+/* ===== Panels ===== */
 .panel {
-  background: var(--card-bg-light);
-  border: 1px solid var(--border-color-light);
+  background: #fffaf0;
+  border: 1px solid #e7dfd1;
   border-radius: 14px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
   padding: 1.25rem;
 }
 body.dark-mode .panel {
@@ -205,7 +219,7 @@ body.dark-mode .panel {
   border-color: var(--border-color-dark);
 }
 
-/* Modal Styles */
+/* ===== Profile Modals ===== */
 .profile-modal-overlay {
   position: fixed;
   inset: 0;
@@ -216,13 +230,13 @@ body.dark-mode .panel {
   z-index: 500;
 }
 .profile-modal {
-  background: var(--card-bg-light);
+  background: #fffaf0;
   padding: 2rem;
   border-radius: 16px;
   width: 520px;
   max-width: 92%;
-  border: 1px solid var(--border-color-light);
-  box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+  border: 1px solid #e7dfd1;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
 }
 body.dark-mode .profile-modal {
   background: var(--card-bg-dark);
@@ -236,6 +250,7 @@ body.dark-mode .profile-modal {
 }
 .modal-header h2 {
   margin: 0;
+  color: #8b6d4e;
 }
 .close-btn {
   background: none;
@@ -251,13 +266,14 @@ body.dark-mode .profile-modal {
 }
 .profile-modal .form-group label {
   margin-bottom: 0.5rem;
+  color: #a78c68;
 }
 .profile-modal .form-group input {
   padding: 0.8rem;
-  border: 1px solid var(--border-color-light);
+  border: 1px solid #e7dfd1;
   border-radius: 6px;
-  background: var(--background-light);
-  color: inherit;
+  background: #fffaf0;
+  color: #8b6d4e;
 }
 body.dark-mode .profile-modal .form-group input {
   border-color: var(--border-color-dark);
@@ -273,13 +289,14 @@ body.dark-mode .profile-modal .form-group input {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem;
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #ecd2b0;
+  color: #8b6d4e;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .profile-grid {
     grid-template-columns: 1fr;
@@ -292,5 +309,26 @@ body.dark-mode .profile-modal .form-group input {
     grid-column: 1 / -1;
     justify-content: flex-start;
     margin-top: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .avatar-wrap {
+    width: 120px;
+    height: 120px;
+  }
+  .avatar-circle {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+  }
+  .profile-info h2 {
+    font-size: 1.5rem;
+  }
+  .profile-header {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .profile-section {
+    padding: 1rem;
   }
 }

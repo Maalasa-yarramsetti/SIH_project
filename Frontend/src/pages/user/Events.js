@@ -156,7 +156,20 @@ const Events = () => {
         </div>
       )}
 
-      <div className="events-page-container">
+      {/* NEW WRAPPER for responsive ordering */}
+      <div className="events-page-wrapper">
+        <aside className="calendar-container">
+          <div className="calendar-widget">
+            <h3>{t('events.calendar')}</h3>
+            <Calendar
+              onChange={setDate}
+              value={date}
+              onClickDay={handleDateClick}
+              tileClassName={({ date, view }) => markEventDates(date, view)} 
+            />
+          </div>
+        </aside>
+
         <div className="events-content">
           <div className="page-header">
               <h2>{t('events.title')}</h2>
@@ -238,18 +251,6 @@ const Events = () => {
             </div>
           )}
         </div>
-        
-        <aside className="calendar-container">
-          <div className="calendar-widget">
-            <h3>{t('events.calendar')}</h3>
-            <Calendar
-              onChange={setDate}
-              value={date}
-              onClickDay={handleDateClick}
-              tileClassName={({ date, view }) => markEventDates(date, view)} 
-            />
-          </div>
-        </aside>
       </div>
     </>
   );

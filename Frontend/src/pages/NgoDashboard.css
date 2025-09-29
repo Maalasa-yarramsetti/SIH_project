@@ -1,3 +1,4 @@
+/* ===== NGO Dashboard Container ===== */
 .ngo-dashboard-container {
   display: flex;
   min-height: 100vh;
@@ -7,10 +8,11 @@ body.dark-mode .ngo-dashboard-container {
   background: var(--background-dark);
 }
 
+/* ===== Sidebar ===== */
 .ngo-sidebar {
   width: 250px;
   flex-shrink: 0;
-  background: #1f2937; /* Using admin panel color */
+  background: #1f2937; /* Admin panel color */
   color: #fff;
   padding: 1.5rem;
   display: flex;
@@ -56,11 +58,15 @@ body.dark-mode .ngo-dashboard-container {
   font-weight: 500;
   font-size: 1rem;
 }
+
+/* ===== Main Content ===== */
 .ngo-main-content {
   flex-grow: 1;
   overflow-y: auto;
   padding: 1.5rem;
 }
+
+/* ===== Floating Action Button ===== */
 .fab {
   position: fixed;
   bottom: 2rem;
@@ -83,6 +89,8 @@ body.dark-mode .fab {
   background-color: var(--secondary-color);
   color: var(--background-dark);
 }
+
+/* ===== Notices ===== */
 .ngo-notice {
   background: rgba(212, 175, 55, 0.1);
   border: 1px solid var(--secondary-color);
@@ -91,6 +99,8 @@ body.dark-mode .fab {
   margin-bottom: 1.5rem;
   font-weight: 500;
 }
+
+/* ===== Modals ===== */
 .ngo-modal-overlay {
   position: fixed;
   inset: 0;
@@ -99,13 +109,14 @@ body.dark-mode .fab {
   align-items: center;
   justify-content: center;
   z-index: 500;
+  padding: 1rem;
 }
 .ngo-modal-content {
   background: var(--card-bg-light);
   padding: 2rem;
   border-radius: 12px;
   width: 500px;
-  max-width: 90%;
+  max-width: 100%;
 }
 body.dark-mode .ngo-modal-content {
   background: var(--card-bg-dark);
@@ -158,6 +169,8 @@ body.dark-mode .cancel-btn {
   background-color: var(--primary-color);
   color: white;
 }
+
+/* ===== Upload Box ===== */
 .upload-box {
   border: 2px dashed var(--border-color-dark);
   padding: 2rem;
@@ -165,6 +178,7 @@ body.dark-mode .cancel-btn {
   text-align: center;
   background: var(--background-light);
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 body.dark-mode .upload-box {
   background: var(--background-dark);
@@ -184,4 +198,46 @@ body.dark-mode .upload-box {
 }
 body.dark-mode .uploaded-files-list li {
   background-color: var(--background-dark);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .ngo-dashboard-container {
+    flex-direction: column;
+  }
+  .ngo-sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem;
+  }
+  .ngo-sidebar h3 {
+    display: none; /* Hide title on smaller screens */
+  }
+  .ngo-main-content {
+    padding: 1rem;
+  }
+  .fab {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ngo-modal-content {
+    width: 100%;
+    padding: 1rem;
+  }
+  .ngo-modal-content textarea,
+  .ngo-modal-content input {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+  .ngo-modal-actions button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
