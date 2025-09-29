@@ -1,0 +1,30 @@
+.inner-slider-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.inner-slider-wrapper .slick-slider,
+.inner-slider-wrapper .slick-list,
+.inner-slider-wrapper .slick-track,
+.inner-slider-wrapper .slick-slide > div {
+  height: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner-slider-wrapper .slick-dots {
+  bottom: 10px;
+}
+.inner-slider-wrapper .slick-dots li button:before {
+  color: white;
+  opacity: 0.75;
+  font-size: 10px;
+}
+.inner-slider-wrapper .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: var(--secondary-color);
+}

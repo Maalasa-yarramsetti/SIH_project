@@ -1,0 +1,28 @@
+.coin-animation-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 9999;
+}
+
+.flying-coin {
+  position: absolute;
+  color: #f1c40f; /* Gold coin color */
+  font-size: 1.5rem;
+  /* This keyframe animation does all the work */
+  animation: flyToCorner 1.5s ease-in-out forwards;
+}
+
+@keyframes flyToCorner {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    /* These values target the top-right corner where the header coin count is */
+    transform: translate(calc(50vw - 120px), calc(-50vh + 30px)) scale(0.2);
+    opacity: 0;
+  }
+}

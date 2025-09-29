@@ -1,0 +1,55 @@
+.proposal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.proposal-card {
+  background: var(--card-bg-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #f1c40f; /* Default pending color */
+}
+body.dark-mode .proposal-card {
+  background: #4a5568;
+}
+.proposal-card.status-accepted {
+  border-left-color: #2ecc71;
+}
+.proposal-card.status-rejected {
+  border-left-color: #e74c3c;
+}
+.status-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.status-pending .status-badge {
+  background-color: #f1c40f;
+}
+.status-accepted .status-badge {
+  background-color: #2ecc71;
+}
+.status-rejected .status-badge {
+  background-color: #e74c3c;
+}
+.proposal-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.proposal-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+.btn-accept {
+  background-color: #27ae60;
+}
+.btn-reject {
+  background-color: #c0392b;
+}

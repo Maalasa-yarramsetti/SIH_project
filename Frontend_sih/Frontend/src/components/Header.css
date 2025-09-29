@@ -1,0 +1,72 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--card-bg-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+body.dark-mode .app-header {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-color-dark);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+.header-logo img {
+  height: 40px;
+}
+.header-logo h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+body.dark-mode .header-logo h3 {
+  color: var(--secondary-color);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.coin-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(232, 168, 124, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+.coin-icon {
+  color: #f1c40f;
+  font-size: 1.2rem;
+}
+.coin-count {
+  font-weight: bold;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: inherit;
+}
+.profile-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+body.dark-mode .profile-icon {
+  color: var(--secondary-color);
+}

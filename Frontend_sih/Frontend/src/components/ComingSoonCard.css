@@ -1,0 +1,60 @@
+.coming-soon-card {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--card-bg-light),
+    var(--card-bg-light) 10px,
+    var(--background-light) 10px,
+    var(--background-light) 20px
+  );
+  border: 2px dashed var(--border-color-light);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Ensures it has a decent height */
+}
+
+body.dark-mode .coming-soon-card {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--card-bg-dark),
+    var(--card-bg-dark) 10px,
+    var(--background-dark) 10px,
+    var(--background-dark) 20px
+  );
+  border-color: var(--border-color-dark);
+}
+
+.coming-soon-card .icon-container {
+  font-size: 2rem;
+  color: var(--primary-color);
+  background-color: var(--card-bg-light);
+  border: 2px solid var(--border-color-light);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+body.dark-mode .coming-soon-card .icon-container {
+  color: var(--secondary-color);
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+}
+
+.coming-soon-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.coming-soon-card p {
+  color: var(--text-light-secondary);
+}
+body.dark-mode .coming-soon-card p {
+  color: var(--text-dark-secondary);
+}

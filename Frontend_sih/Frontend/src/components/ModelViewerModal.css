@@ -1,0 +1,31 @@
+.model-viewer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.model-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 3001;
+}
+
+.model-viewer-content {
+  width: 90%;
+  height: 90%;
+  border-radius: 12px;
+  overflow: hidden;
+}

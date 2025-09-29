@@ -1,0 +1,97 @@
+.archive-card {
+  background: var(--card-bg-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stacks image on top of content */
+  border: 1px solid var(--border-color-light);
+}
+body.dark-mode .archive-card {
+  background: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+}
+
+.archive-card-image-container {
+  height: 200px; /* Fixed height for the image part */
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.archive-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.archive-card-image-container:hover .archive-card-img {
+  transform: scale(1.05);
+}
+
+.view-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.archive-card-image-container:hover .view-overlay {
+  opacity: 1;
+}
+
+.archive-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes actions to the bottom */
+  flex-grow: 1; /* Allows this section to fill remaining space */
+}
+.archive-card-body h4 {
+  margin: 0.25rem 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+.archive-card-location {
+  font-size: 0.8rem;
+  color: var(--text-light-secondary);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+body.dark-mode .archive-card-location {
+  color: var(--text-dark-secondary);
+}
+
+.archive-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.archive-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border-color-light);
+  padding-top: 1rem;
+}
+body.dark-mode .archive-card-actions {
+  border-top-color: var(--border-color-dark);
+}
+.archive-card-actions button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-light-secondary);
+}
+body.dark-mode .archive-card-actions button {
+  color: var(--text-dark-secondary);
+}

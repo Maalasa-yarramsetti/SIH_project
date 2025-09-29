@@ -1,0 +1,71 @@
+.carousel-wrapper {
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  /* --- UPDATED HEIGHT --- */
+  height: 150px;
+}
+
+/* This targets the slide itself and ensures it fills the container */
+.carousel-slide {
+  height: 150px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex !important; /* Use flexbox to position the caption */
+  align-items: center; /* Vertically center the caption */
+  justify-content: center;
+}
+
+/* This adds a dark overlay so white text is always readable */
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+}
+
+.carousel-caption {
+  position: relative;
+  width: 90%;
+  padding: 10px; /* Reduced padding for the smaller size */
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.carousel-caption p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Styles for the navigation dots */
+.slick-dots {
+  bottom: 5px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  opacity: 0.6;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: var(--secondary-color);
+}

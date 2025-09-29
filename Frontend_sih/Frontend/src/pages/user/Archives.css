@@ -1,0 +1,99 @@
+.archives-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 1rem;
+}
+
+.archive-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows controls to stack on smaller screens */
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--card-bg-light);
+  border-radius: 12px;
+}
+body.dark-mode .archive-controls {
+  background-color: var(--card-bg-dark);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color-light);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: 500;
+  color: var(--text-light-secondary);
+}
+body.dark-mode .filter-buttons button {
+  border-color: var(--border-color-dark);
+  color: var(--text-dark-secondary);
+}
+
+.filter-buttons button.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+body.dark-mode .filter-buttons button.active {
+  background: var(--secondary-color);
+  color: var(--background-dark);
+  border-color: var(--secondary-color);
+}
+
+/* --- NEW PROFESSIONAL SEARCH BAR --- */
+.archive-search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-light);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color-light);
+  min-width: 300px; /* Gives it a decent default size */
+}
+body.dark-mode .archive-search-bar {
+  background-color: var(--background-dark);
+  border-color: var(--border-color-dark);
+}
+
+.archive-search-bar .search-icon {
+  margin-right: 0.75rem;
+  color: var(--text-light-secondary);
+}
+body.dark-mode .archive-search-bar .search-icon {
+  color: var(--text-dark-secondary);
+}
+
+.archive-search-bar input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+  outline: none;
+  color: inherit;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+  color: var(--text-light-secondary);
+}

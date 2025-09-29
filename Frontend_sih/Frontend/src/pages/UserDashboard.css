@@ -1,0 +1,22 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-light);
+}
+
+body.dark-mode .dashboard-container {
+  background-color: var(--background-dark);
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,581 @@
+/* Main container styles */
+.monastery-map-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  background-color: #f4f7f6;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+h2 {
+  text-align: center;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Google-like search container */
+.map-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.monastery-search-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+}
+
+.monastery-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .monastery-search-input-wrapper {
+  background: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+}
+
+.monastery-search-input-wrapper:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.monastery-search-input-wrapper .search-icon {
+  color: var(--text-light-secondary);
+  margin-right: 0.75rem;
+}
+
+body.dark-mode .monastery-search-input-wrapper .search-icon {
+  color: var(--text-dark-secondary);
+}
+
+.monastery-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.monastery-search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #000000;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  width: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+}
+
+body.dark-mode .monastery-search-results {
+  background: #000000;
+  border-color: #333333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.monastery-search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border-bottom: 1px solid #ffffff;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+body.dark-mode .monastery-search-item {
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+}
+
+.monastery-search-item:last-child {
+  border-bottom: none;
+}
+
+.monastery-search-item:hover {
+  background: #333333;
+}
+
+body.dark-mode .monastery-search-item:hover {
+  background: #333333;
+}
+
+.monastery-search-item .result-icon {
+  color: #ffffff;
+  font-size: 16px;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-mode .monastery-search-item .result-icon {
+  color: #ffffff;
+}
+
+.monastery-search-item .result-name {
+  font-weight: 400;
+  color: #ffffff;
+  flex: 1;
+}
+
+body.dark-mode .monastery-search-item .result-name {
+  color: #ffffff;
+}
+
+.monastery-search-item.empty {
+  color: #ffffff;
+  cursor: default;
+  justify-content: center;
+  font-style: normal;
+  padding: 12px 16px;
+}
+
+body.dark-mode .monastery-search-item.empty {
+  color: #ffffff;
+}
+
+/* Map and info section layout */
+.map-layout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.map-section {
+  flex: 2;
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.monastery-search-results {
+  animation: fadeIn 0.3s ease-in-out;
+}
+ 
+.map-loading, .map-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 500;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.info-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Distance Panel */
+.distance-panel {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.distance-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.distance-header .icon {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.distance-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.monastery-info h4 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.monastery-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.route-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.stat-icon {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #444;
+}
+
+.route-description {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #eaf5ff;
+  padding: 10px;
+  border-radius: 8px;
+  color: #0056b3;
+}
+
+.route-description .icon {
+  color: #0056b3;
+}
+
+/* Nearby Places Layout */
+.nearby-places-container {
+  margin-top: 30px;
+}
+
+.nearby-places-container h3 {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.places-category {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.places-category h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.places-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Nearby Place Card */
+.place-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #fcfcfc;
+}
+
+.place-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.place-info h5 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.place-type {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: #777;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.place-price {
+  font-size: 0.9rem;
+  color: #007bff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.place-distance-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.distance-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.distance-icon {
+  font-size: 1rem;
+  color: #007bff;
+}
+
+.distance-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #888;
+}
+
+/* Leaflet Custom Marker & Popup */
+.custom-monastery-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+}
+
+.monastery-marker-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.monastery-popup-container .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.monastery-popup-container .leaflet-popup-content {
+  margin: 0;
+  width: 100% !important;
+}
+
+.monastery-popup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.popup-image-container {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-content {
+  padding: 15px;
+}
+
+.popup-title {
+  font-size: 1.2rem;
+  margin: 0 0 5px;
+  color: #333;
+}
+
+.popup-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.popup-actions {
+  text-align: right;
+}
+
+.popup-select-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.popup-select-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Style for Book Now button */
+.book-now-btn {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Small size variant for Book Now button */
+.book-now-btn.small {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* Add border and slight rounding to the search input */
+.monastery-search-input {
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: border-color 0.3s ease;
+}
+
+.monastery-search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+/* Add margin between Route Information panel and Book Now button */
+.info-section > .booking-actions {
+  margin-top: 20px;
+}
+
+/* Improved Search Bar Container */
+.monastery-search-input-wrapper {
+  border: 1.8px solid #ccc; /* Slightly thicker border for better visibility */
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.monastery-search-input-wrapper:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Search Input */
+.monastery-search-input {
+  background: transparent;
+  color: #333;
+  padding: 10px 12px;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+}
+
+/* Search Icon Color */
+.monastery-search-input-wrapper .search-icon {
+  color: #007bff;
+}

@@ -1,0 +1,107 @@
+/* Inherits styles from Profile.css for consistency where possible */
+.ngo-profile-page .profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  background: var(--card-bg-light);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+body.dark-mode .ngo-profile-page .profile-header {
+  background: var(--card-bg-dark);
+}
+.ngo-profile-page .profile-avatar {
+  color: var(--text-light-secondary);
+}
+.ngo-profile-page .profile-info h2 {
+  margin: 0 0 0.5rem 0;
+}
+.ngo-profile-page .profile-info p {
+  margin: 0.25rem 0;
+  color: var(--text-light-secondary);
+}
+.ngo-profile-page .edit-profile-btn {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Modal Styles from Profile.css */
+.profile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+}
+.profile-modal {
+  background: var(--card-bg-light);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 450px;
+  max-width: 90%;
+}
+body.dark-mode .profile-modal {
+  background: var(--card-bg-dark);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.modal-header h2 {
+  margin: 0;
+}
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+.profile-modal .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.profile-modal .form-group label {
+  margin-bottom: 0.5rem;
+}
+.profile-modal .form-group input {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color-light);
+  border-radius: 6px;
+  background: var(--background-light);
+  color: inherit;
+}
+body.dark-mode .profile-modal .form-group input {
+  border-color: var(--border-color-dark);
+  background: var(--background-dark);
+}
+.modal-actions {
+  margin-top: 1.5rem;
+}
+.save-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
